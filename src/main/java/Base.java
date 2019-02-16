@@ -12,13 +12,13 @@ public class Base {
         int taskNum = in.nextInt();
         if (taskNum == 1) {
             System.out.println("Введите первое число:");
-            double Num1 = in.nextDouble();
+            double num1 = in.nextDouble();
             System.out.println("Введите второе число:");
-            double Num2 = in.nextDouble();
+            double num2 = in.nextDouble();
             System.out.println("Введите вид операции +, -, * или / :");
-            String Oper = in.next();
+            String oper = in.next();
             //Анализ и рассчет
-            calculate(Num1, Num2, Oper);
+            calculate(num1, num2, oper);
 
         } else if (taskNum == 2) {
             System.out.println("Введите длину одномерного массива строк:");
