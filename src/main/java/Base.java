@@ -24,11 +24,12 @@ public class Base {
             System.out.println("Введите длину одномерного массива строк:");
             int stringArrLength = in.nextInt();
             String[] stringArr = new String[stringArrLength];
-            for (int i = 0; i < stringArrLength; i++){
+            for (int i = 0; i < stringArrLength; i++) {
                 System.out.printf("String[%d] = ", i);
                 stringArr[i] = in.next();
             }
-            maxStringLength(stringArr);
+            //Поиск и вывод на консоль самого длинного слова
+            printMaxStringLength(stringArr);
         } else {
             System.out.println("Неправильно введен номер задачи!");
         }
@@ -37,38 +38,35 @@ public class Base {
     }
 
     private static void calculate(double cNum1, double cNum2, String cOp) {
-        double cRes;
+        Calculator calc = new Calculator();
         switch (cOp) {
             case ("+"): {
-                cRes = cNum1 + cNum2;
-                System.out.printf("Сумма чисел: %.4f \n", cRes);
+                System.out.printf("Сумма чисел: %.4f \n", calc.sum(cNum1, cNum2));
                 break;
             }
             case "-": {
-                cRes = cNum1 - cNum2;
-                System.out.printf("Разность чисел: %.4f \n", cRes);
+                System.out.printf("Разность чисел: %.4f \n", calc.difference(cNum1, cNum2));
                 break;
             }
             case "*": {
-                cRes = cNum1 * cNum2;
-                System.out.printf("Произведение чисел: %.4f \n", cRes);
+                System.out.printf("Произведение чисел: %.4f \n", calc.product(cNum1, cNum2));
                 break;
             }
             case "/": {
-                cRes = cNum1 / cNum2;
-                System.out.printf("Частное от деления чисел: %.4f \n", cRes);
+                System.out.printf("Частное от деления чисел: %.4f \n", calc.quotient(cNum1, cNum2));
                 break;
             }
             default:
                 System.out.println("Неправильно введен вид операции!");
         }
     }
-    private static void maxStringLength(String[] strArg){
+
+    private static void printMaxStringLength(String[] strArg) {
         int maxLen = strArg[0].length();
         int maxNum = 0;
 
-        for (int i = 1; i < strArg.length; i++){
-            if (strArg[i].length() > maxLen){
+        for (int i = 1; i < strArg.length; i++) {
+            if (strArg[i].length() > maxLen) {
                 maxLen = strArg[i].length();
                 maxNum = i;
             }
