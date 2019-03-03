@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import calculate.*;
 
 /**
  * @author Литвинцова Юлия
@@ -12,9 +13,9 @@ public class Base {
         int taskNum = in.nextInt();
         if (taskNum == 1) {
             System.out.println("Введите первое число:");
-            double num1 = in.nextDouble();
+            int num1 = in.nextInt();
             System.out.println("Введите второе число:");
-            double num2 = in.nextDouble();
+            int num2 = in.nextInt();
             System.out.println("Введите вид операции +, -, * или / :");
             String oper = in.next();
             //Анализ и рассчет
@@ -37,23 +38,33 @@ public class Base {
         in.close();
     }
 
-    private static void calculate(double cNum1, double cNum2, String cOp) {
-        Calculator calc = new Calculator();
+    private static void calculate(int cNum1, int cNum2, String cOp) {
+
+        //Calculator calc = new Calculator();
         switch (cOp) {
             case ("+"): {
-                System.out.printf("Сумма чисел: %.4f \n", calc.sum(cNum1, cNum2));
+                Sum sum = new Sum(cNum1, cNum2);
+                System.out.println(sum.toString());
                 break;
             }
             case "-": {
-                System.out.printf("Разность чисел: %.4f \n", calc.difference(cNum1, cNum2));
+                Difference dif = new Difference(cNum1, cNum2);
+                System.out.println(dif.toString());
                 break;
             }
             case "*": {
-                System.out.printf("Произведение чисел: %.4f \n", calc.product(cNum1, cNum2));
+                Product prod = new Product(cNum1, cNum2);
+                System.out.println(prod.toString());
                 break;
             }
             case "/": {
-                System.out.printf("Частное от деления чисел: %.4f \n", calc.quotient(cNum1, cNum2));
+                try {
+                    Quotient quotient = new Quotient(cNum1, cNum2);
+                    System.out.println(quotient.toString());
+                }
+                catch (ArithmeticException e) {
+                    System.out.println("Деление на ноль: " + e);
+                }
                 break;
             }
             default:

@@ -6,27 +6,19 @@ public class Calculator {
 
     }
 
-    public double sum(double num1, double num2) {
+    public double sum(int num1, int num2) {
         return (num1 + num2);
     }
 
-    public double difference(double num1, double num2) {
+    public double difference(int num1, int num2) {
         return (num1 - num2);
     }
 
-    public double product(double num1, double num2) {
+    public double product(int num1, int num2) {
         return (num1 * num2);
     }
 
-    public double quotient(double num1, double num2) {
-        double res;
-        try {
-            res = (num1 / num2);
-        } catch (ArithmeticException e) {
-            System.out.println("Деление на ноль: " + e + "!");
-            res = e.hashCode();
-        }
-        return res;
-
+    public double quotient(int num1, int num2) {
+        return (num1/num2);
     }
 }
